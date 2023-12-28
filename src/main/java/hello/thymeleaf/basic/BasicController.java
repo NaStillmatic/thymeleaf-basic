@@ -52,17 +52,6 @@ public class BasicController {
         return "basic/variable";
     }
 
-    @Data
-    static class User {
-        private String username;
-        private int age;
-
-        public User(String username, int age) {
-            this.username = username;
-            this.age = age;
-        }
-    }
-
     @GetMapping("/basic-objects")
     public String basicObjects(Model model, HttpServletRequest request, HttpServletResponse response,  HttpSession session) {
 
@@ -84,5 +73,24 @@ public class BasicController {
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
         return "basic/date";
+    }
+
+    @GetMapping("link")
+    public String link(Model model) {
+        model.addAttribute("param1", "param1");
+        model.addAttribute("param2", "param2");
+
+        return "basic/link";
+    }
+
+    @Data
+    static class User {
+        private String username;
+        private int age;
+
+        public User(String username, int age) {
+            this.username = username;
+            this.age = age;
+        }
     }
 }
